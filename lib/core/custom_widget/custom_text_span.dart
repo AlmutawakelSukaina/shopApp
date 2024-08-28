@@ -17,13 +17,13 @@ class CustomTextSpan extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: "$text1 ",
-        style: TextStyle(color: Colors.black, fontFamily: appFont,
+        style: const TextStyle(color: Colors.black, fontFamily: appFont,
         fontSize: 15
         ),
         children: <TextSpan>[
           TextSpan(
             text: text2,
-            style: TextStyle(
+            style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.blue,
                 fontFamily: appFont,

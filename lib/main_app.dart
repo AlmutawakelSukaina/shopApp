@@ -15,6 +15,7 @@ class MainApp extends StatelessWidget {
     providers: [
       // Add your providers here
       ChangeNotifierProvider(create: (_) =>sl< CartProvider>()),
+      ChangeNotifierProvider(create: (_) =>sl<SignInProvider>()),
       // Add more providers as needed
     ],
     child: MaterialApp(

@@ -27,6 +27,38 @@ mixin class BasedHttpRequests  {
       return res.processResponse();
     }
 
+  Future<NetworkServiceResponse> postData
+      ({required String url, required dynamic parameter,String ?method,}) async {
+
+
+
+
+    final response = await post(
+    Uri.parse(url),
+      headers: getHeader() ,
+
+      body:parameter!=null? utf8.encode(json.encode(parameter)):null,
+    ).timeout(const Duration(seconds: 40),
+        onTimeout: () {
+          throw TimeOutException(kTimeOutException);
+        });
+    globalPrint('post parameter $parameter');
+    globalPrint('post url $url');
+
+    globalPrint('post response ${response.body}');
+    globalPrint('post statusCode ${response.statusCode}');
+
+    return response.processResponse();
+  }
+
+  Map<String, String>   getHeader()   {
+    Map<String, String> header = {};
+
+    header['content-type'] = 'application/json';
+
+
+    return header;
+  }
   }
 
 

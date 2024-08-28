@@ -4,7 +4,7 @@ import 'libs.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  PreferencesHelper.init();
   ServiceLocator().init();
   await ProductDatabase.instance.database;
 

@@ -4,8 +4,8 @@
 import '../../../libs.dart';
 
 extension BuildContextExtension on BuildContext {
-  void pushName(String routeName) {
-    Navigator.of(this).pushNamed(routeName);
+  Future pushName(String routeName) {
+    return Navigator.of(this).pushNamed(routeName);
   }
 
   void pushReplacementName(String routeName) {
@@ -38,7 +38,7 @@ extension BuildContextExtension on BuildContext {
             specificBody: widget ??
                 CustomTextApp(
                   text: message,
-                  size: 6,
+                  size: 20,
                 ),
             successButton:successTitle?? "OK",
             cancelOnTap: cancelButton,

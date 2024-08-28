@@ -2,10 +2,11 @@ import '../../../libs.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+  final int? count;
 
   const ProductCard({
     super.key,
-    required this.product,
+    required this.product,   this.count,
   });
 
   @override
@@ -91,11 +92,32 @@ class ProductCard extends StatelessWidget {
                     ],
                   ),
                   8.ph,
-                  CustomTextApp(
-                    text: '\$${product.price}',
-                    size: 16,
-                    font: FontWeight.bold,
-                    colors: Colors.green,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomTextApp(
+                        text: '\$${product.price}',
+                        size: 16,
+                        font: FontWeight.bold,
+                        colors: Colors.green,
+                      ),
+                      if(count!=null&&count! >0)
+                      Container(
+                        padding: const EdgeInsets.all(5),
+
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red
+
+                        ),
+                        child: CustomTextApp(
+                          text:"$count",
+                          size: 20,
+                          colors: Colors.white,
+                        ),
+                      ),
+                      5.pw,
+                    ],
                   )
                 ],
               ),

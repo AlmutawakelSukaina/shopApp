@@ -1,6 +1,6 @@
  import 'package:sqflite/sqflite.dart';
 
-import '../../libs.dart';
+import '../../../libs.dart';
 
 class ProductDatabase {
   static final ProductDatabase instance = ProductDatabase._internal();

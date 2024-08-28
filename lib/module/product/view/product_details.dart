@@ -20,14 +20,14 @@ class ProductDetailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Product Image
-            if( product.image!=null)
-            Center(
-              child: Image.network(
-                product.image!,
-                height: 250,
-                fit: BoxFit.cover,
+            if (product.image != null)
+              Center(
+                child: Image.network(
+                  product.image!,
+                  height: 250,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
             16.ph,
 
             // Product Title
@@ -85,11 +85,27 @@ class ProductDetailsScreen extends StatelessWidget {
             Center(
               child: CustomButton(
                   onPressed: () {
-                    Provider.of<CartProvider>(context, listen: false)
-                        .addToCart(product);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('${product.title} added to cart')),
-                    );
+                    if (PreferencesHelper()
+                        .getBool(SharedPreferenceConst.isUserLoggedIn)) {
+                      Provider.of<CartProvider>(context, listen: false)
+                          .addToCart(product);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                            content: CustomTextApp(text:
+                            '${product.title} added to cart',colors: AppColors.white,)),
+                      );
+                    } else {
+                      context.showAppDialog(
+                          title: "Login Require",
+                          message:
+                              "You must be logged in to complete this process",
+                          showCancel: true,
+                          onTapSuccess: () {
+                            context.pop();
+                            context.pushName(AppRoutes.signIn);
+                          },
+                          cancelButtonTitle: "Cancel");
+                    }
                   },
                   text: "Add to Cart"),
             )

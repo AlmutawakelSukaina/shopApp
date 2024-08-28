@@ -17,36 +17,41 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ElevatedButton(
-      onPressed: () {
-        // if (!loading) {
-          onPressed();
-        // }
-      },
 
-      style: ElevatedButton.styleFrom(
-        backgroundColor:/* loading ? AppColors.grey : */(buttonColor ??
-            AppColors.orange),
-        shadowColor: Colors.orange[50],
-        elevation:elevation,
+  return  Selector<SignInProvider, bool>(
+      builder: (context, loading, child) {
+        return  ElevatedButton(
+          onPressed: () {
+            if (!loading) {
+              onPressed();
+            }
+          },
+
+          style: ElevatedButton.styleFrom(
+            backgroundColor: loading ? AppColors.grey : (buttonColor ??
+                AppColors.orange),
+            shadowColor: Colors.orange[50],
+            elevation:elevation,
 
 
-        side: border == true ?
-        const BorderSide(color: Colors.black38, width: 1) : null,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-              radius?? defaultBorderRadius), // Adjust the radius here
-        ),
-        // Change background color here
-      ),
+            side: border == true ?
+            const BorderSide(color: Colors.black38, width: 1) : null,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                  radius?? defaultBorderRadius), // Adjust the radius here
+            ),
+            // Change background color here
+          ),
 
-      child:/* loading ? const LoadingIndicator() :*/
-      CustomTextApp(
-        text: text,
-        colors: textColor??AppColors.white,
-        size: 20,
-        font:fontWeight,
-      ).symmetricPadding(1, 0),
+          child:loading ? const LoadingIndicator() :
+          CustomTextApp(
+            text: text,
+            colors: textColor??AppColors.white,
+            size: 20,
+            font:fontWeight,
+          ).symmetricPadding(1, 0),
+        );
+      }, selector: (buildContext, SignInProvider signUp) => signUp.loading,
     )
     ;
   }

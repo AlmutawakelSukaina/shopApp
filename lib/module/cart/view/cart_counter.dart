@@ -23,6 +23,8 @@ class CartCounter extends StatelessWidget {
                 color: AppColors.orange,
               ),
               onPressed: () {
+                context.pushName(AppRoutes.cartWidget);
+
               },
             ),).onTap((){
             context.pushName(AppRoutes.cartWidget);

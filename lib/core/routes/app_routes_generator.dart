@@ -1,5 +1,5 @@
 
-import 'package:shop_app/module/cart/view/cart_widget.dart';
+
 
 import '../../../libs.dart';
 
@@ -12,6 +12,10 @@ class AppRouterGenerator {
         return MaterialPageRoute(builder: (_) => const ProductList());
       case AppRoutes.cartWidget:
         return MaterialPageRoute(builder: (_) => const CartWidget());
+      case AppRoutes.signIn:
+        return MaterialPageRoute(builder: (_) => const SignIn());
+      case AppRoutes.checkoutPage:
+        return MaterialPageRoute(builder: (_) => const CheckOutPage());
 
       default:
       // If route not found, navigate to a default error page

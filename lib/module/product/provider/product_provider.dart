@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:shop_app/core/enum.dart';
+import 'package:shop_app/core/utils/enum.dart';
 import 'package:shop_app/core/http/http_requests.dart';
 import 'package:shop_app/core/http/network_service_response.dart';
 import 'package:shop_app/core/http/url.dart';
-import 'package:shop_app/core/repository/db.dart';
-import 'package:shop_app/core/shared_function.dart';
+import 'package:shop_app/core/repository/db_helper/db.dart';
+import 'package:shop_app/core/utils/shared_function.dart';
 import 'package:shop_app/module/product/model/model.dart';
 
 class ProductProvider extends BasedHttpRequests

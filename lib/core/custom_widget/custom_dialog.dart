@@ -64,7 +64,7 @@ class CustomGeneralAlertDialogState extends State<CustomGeneralAlertDialog> {
             alignment: AlignmentDirectional.center,
             child:  widget.titleWidget??CustomTextApp(text: widget.title,
               font:FontWeight.bold , textAlign:
-              TextAlign.center,size: widget.titleFontSize??7,colors: AppColors.orange,),),
+              TextAlign.center,size: widget.titleFontSize??20,colors: AppColors.orange,),),
 
 
           SizedBox(
@@ -91,7 +91,7 @@ class CustomGeneralAlertDialogState extends State<CustomGeneralAlertDialog> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               widget.body.runtimeType == String
-                  ?CustomTextApp(text: widget.body,size:4 )
+                  ?CustomTextApp(text: widget.body,size:20 )
                   : widget.body
             ],
           ),
