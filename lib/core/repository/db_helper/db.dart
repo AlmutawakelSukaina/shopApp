@@ -67,6 +67,7 @@ class ProductDatabase {
             'description': json[ProductTable.description],
             'category': json[ProductTable.category],
 
+
             'rating': {
               'rate': json[ProductTable.ratingRate],
               'count': json[ProductTable.ratingCount],

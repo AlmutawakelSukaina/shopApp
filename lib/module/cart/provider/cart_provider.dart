@@ -4,7 +4,7 @@ import '../../../libs.dart';
 class CartProvider extends ChangeNotifier {
   // List to store cart items
   final List<Product> _cartItems = [];
-
+  final  productCount={};
   // Getter for cart items
   List<Product> get cartItems => List.unmodifiable(_cartItems);
 
